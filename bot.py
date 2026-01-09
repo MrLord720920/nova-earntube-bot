@@ -13,6 +13,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 def main():
+    if not BOT_TOKEN:
+        raise RuntimeError("BOT_TOKEN not found")
+
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.run_polling()
