@@ -14,7 +14,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def main():
     if not BOT_TOKEN:
-        raise RuntimeError("BOT_TOKEN not found")
+        raise RuntimeError("BOT_TOKEN not found in Environment Variables")
 
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("start", start))
